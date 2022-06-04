@@ -1,4 +1,12 @@
 {
+  "name": "countries-list-infos",
+  "version": "1.0.0",
+  "description": "A website which display every countries in the world, and some information about it",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "type": "module"
+  },
   "dependencies": {
     "bootstrap": "^5.2.0-beta1",
     "ejs": "^3.1.8",
