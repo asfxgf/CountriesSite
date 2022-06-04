@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Countries</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<script src="/js/data.js"></script>
+	<script src="/js/functions.js"></script>
+</head>
+<body class = "body container">
+	<script type="text/javascript">
+		for (var i = 0; i < countries.length; i++) {
+			const country_name = countries[i].name.official;
+			const currency = countries[i].currencies;
+			let currency_name = null;
+			let currency_symbol = null;
+			let country_capital = null;
+			let population = countries[i].population;
+			let flag_png = countries[i].flags["png"];
+			let coat_of_arms_png = null;
+			if (countries[i].coatOfArms["png"] == undefined ){
+				coat_of_arms_png = "none";
+			} else {
+				coat_of_arms_png = countries[i].coatOfArms["png"];
+			}
+			let maps_googleMaps = countries[i].maps.googleMaps;
+			let maps_openStreetMaps = countries[i].maps.openStreetMaps;
+			if (currency == undefined) {
+				currency_name = "none";
+				currency_symbol = "";
+			} else {
+				currency_name = Object.values(currency)[0].name;
+				currency_symbol = Object.values(currency)[0].symbol;
+			}
+			if (countries[i].capital == undefined){
+				country_capital = "";
+			} else {
+				country_capital = countries[i].capital[0];
+			}
+			createCard(country_name, currency_name, currency_symbol, population, flag_png, coat_of_arms_png, maps_googleMaps, country_capital);
+		}
+	</script>
+</body>
+</html>
